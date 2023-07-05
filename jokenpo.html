@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jokenpô</title>
+</head>
+<body>
+    <h1>Pedra, Papel ou Tesoura?</h1>
+    <p>Escolha uma opção abaixo e tente a sorte:</p>
+    <button onclick="jogar('pedra')">Pedra</button>
+    <button onclick="jogar('papel')">Papel</button>
+    <button onclick="jogar('tesoura')">Tesoura</button>
+    <p id="resultado"></p>
+
+    <script>
+        function jogar(escolhaUsuario) {
+    var opcoes = ["pedra", "papel", "tesoura"];
+    var escolhaComputador = opcoes[Math.floor(Math.random() * 3)];
+    var resultado = "";
+
+    if (escolhaUsuario === escolhaComputador) {
+        resultado = "Empate!";
+    } else if (
+        (escolhaUsuario === "pedra" && escolhaComputador === "tesoura") ||
+        (escolhaUsuario === "papel" && escolhaComputador === "pedra") ||
+        (escolhaUsuario === "tesoura" && escolhaComputador === "papel")
+    ) {
+        resultado = "Você ganhou!";
+    } else {
+        resultado = "Você perdeu!";
+    }
+
+    document.getElementById("resultado").innerHTML = resultado;
+}
+
+    </script>
+</body>
+</html>
